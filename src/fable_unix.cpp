@@ -9,7 +9,13 @@
 #include <string.h>
 
 #include <sys/socket.h>
+
+#ifdef _DARWIN_
+#define UNIX_PATH_MAX 104
+#include <sys/un.h>
+#else
 #include <linux/un.h> // For UNIX_PATH_MAX
+#endif
 
 char coord_dir[] = "/tmp/phoenix_coord_XXXXXX";
 char fable_unix_buf[4096];

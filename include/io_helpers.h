@@ -2,6 +2,12 @@
 #ifndef IO_HELPERS_H
 #define IO_HELPERS_H
 
+#ifdef _DARWIN_
+#ifndef MSG_NOSIGNAL
+#define MSG_NOSIGNAL SO_NOSIGPIPE
+#endif
+#endif
+
 void read_all_fd(int fd, char* buf, int len);
 
 void write_all_fd(int fd, const char* buf, int len, int ignore_close = 0);

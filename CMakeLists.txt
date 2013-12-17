@@ -53,8 +53,12 @@ endif ()
 ##
 ## =============================================================================
 
+
 if (APPLE)
-    add_definitions (-DAPPLE)
+    add_definitions (-D_DARWIN_)
+#    DEBUG = -g
+#    CFLAGS = $(DEBUG) -Wall -O3 $(OS)
+#    LIBS = -lpthread
 endif (APPLE)
 
 include_directories (
